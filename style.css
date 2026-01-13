@@ -1,19 +1,14 @@
-
-
-Skip to content
-Using Gmail with screen readers
-Conversations
-0% of 15 GB used
-Terms · Privacy · Program Policies
-Last account activity: 15 hours ago
-Details
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Adjust based on your header height */
+}
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
@@ -31,7 +26,7 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 nav {
@@ -43,7 +38,8 @@ nav {
     margin: 0 auto;
     padding: 0 2rem;
 }
-nav .contactbox{
+
+nav .contactbox {
     background-color: #ec1e21;
     color: white;
     box-sizing: border-box;
@@ -51,9 +47,10 @@ nav .contactbox{
     font-size: 1em;
     border-radius: 5px;
     font-weight: bold;
-    transition: all,ease-in-out,1000ms,300ms;
+    transition: all, ease-in-out, 1000ms, 300ms;
 }
-nav .contactbox:hover{
+
+nav .contactbox:hover {
     transform: scale(1.1);
 }
 
@@ -72,12 +69,12 @@ nav .contactbox:hover{
     color: black;
     text-decoration: none;
     transition: opacity 0.3s;
-    transition: all,ease-in-out,1000ms,300ms;
+    transition: all, ease-in-out, 1000ms, 300ms;
 }
 
 .nav-links a:hover {
     opacity: 0.8;
-    color:  #ec1e21;
+    color: #ec1e21;
     transform: scale(1.1);
 }
 
@@ -89,41 +86,46 @@ nav .contactbox:hover{
     text-align: center;
     display: flex;
 }
-.hero .info{
+
+.hero .info {
     margin-top: 60px;
     color: rgb(4, 4, 49);
 }
+
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
     animation: fadeInUp 1s ease;
 }
-.hero h2{
-        animation: fadeInUp 1s ease;
-        color:  #ec1e21;
-        font-family: "Baloo 2", sans-serif;
+
+.hero h2 {
+    animation: fadeInUp 1s ease;
+    color: #ec1e21;
+    font-family: "Baloo 2", sans-serif;
 }
 
 .hero p {
     color: rgb(4, 4, 49);
-    font-weight:600 ;
+    font-weight: 600;
     font-size: 1.3rem;
     margin-bottom: 2rem;
     animation: fadeInUp 1s ease 0.2s backwards;
     font-family: "Baloo 2", sans-serif;
 }
-.hero .banner1{
+
+.hero .banner1 {
     border: 2px solid red;
 }
-.hero .banner1 img{
+
+.hero .banner1 img {
     width: 78%;
     object-fit: contain;
-    
+
 }
 
 .cta-button {
     background: white;
-    color:  #ec1e21;
+    color: #ec1e21;
     padding: 1rem 3rem;
     border: none;
     border-radius: 50px;
@@ -133,14 +135,14 @@ nav .contactbox:hover{
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
     animation: fadeInUp 1s ease 0.4s backwards;
-    transition: all,ease-in-out,1000ms,300ms;
+    transition: all, ease-in-out, 1000ms, 300ms;
 
 }
 
 .cta-button:hover {
     border: 2px solid rgb(4, 4, 49);
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Features Section */
@@ -157,6 +159,12 @@ nav .contactbox:hover{
     color: rgb(4, 4, 49);
 }
 
+.section-title1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: rgb(4, 4, 49);
+}
+
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -167,14 +175,14 @@ nav .contactbox:hover{
     background: white;
     padding: 2rem;
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
     text-align: center;
 }
 
 .feature-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .feature-icon {
@@ -183,11 +191,12 @@ nav .contactbox:hover{
 }
 
 .feature-card h3 {
-    color:  #ec1e21;
+    color: #ec1e21;
     margin-bottom: 1rem;
     font-size: 1.5rem;
 }
-.feature-card P{
+
+.feature-card P {
     color: rgb(4, 4, 49);
 }
 
@@ -213,7 +222,7 @@ nav .contactbox:hover{
     background: white;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
 }
 
@@ -235,7 +244,7 @@ nav .contactbox:hover{
 .course-body ul {
     list-style: none;
     padding-left: 0;
-    color:rgb(4, 4, 49); 
+    color: rgb(4, 4, 49);
 }
 
 .course-body li {
@@ -247,6 +256,95 @@ nav .contactbox:hover{
     content: "✓ ";
     color: #667eea;
     font-weight: bold;
+}
+
+/* affilations */
+.afcontainer {
+    width: 100vw;
+    height: 50vh;
+    box-sizing: border-box;
+    border: 2px solid red;
+    padding: 5px;
+}
+
+.mainbox1 {
+    width: 80%;
+    height: 40%;
+    box-sizing: border-box;
+    border: 2px solid green;
+    display: flex;
+    gap: 10px;
+    padding: 5px;
+    margin: 2px auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.mainbox2 {
+    width: 80%;
+    height: 40%;
+    box-sizing: border-box;
+    border: 2px solid green;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    margin: 2px auto;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.mainbox1 .box {
+    box-sizing: border-box;
+    border: 2px solid blue;
+    height: 60%;
+    width: 25%;
+    padding: 5px;
+}
+
+.mainbox1 .box img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.mainbox2 .box1 {
+    box-sizing: border-box;
+    border: 2px solid red;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+
+}
+
+.number {
+    font-size: 72px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    line-height: 1;
+}
+
+.stars {
+    font-size: 24px;
+    color: #ffa500;
+    margin-bottom: 20px;
+    letter-spacing: 4px;
+}
+
+.description {
+    font-size: 18px;
+    font-weight: 600;
+    color: #555;
+    line-height: 1.4;
+}
+
+.percent {
+    font-size: 32px;
+    color: #2c3e50;
+    font-weight: 300;
 }
 
 /* Testimonials */
@@ -267,7 +365,7 @@ nav .contactbox:hover{
     background: white;
     padding: 2rem;
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     position: relative;
 }
 
@@ -292,12 +390,13 @@ nav .contactbox:hover{
 
 /* Contact Section */
 .contact {
-    background: rgb(4, 4, 49); 
+    background: rgb(4, 4, 49);
     color: white;
     padding: 80px 2rem;
     text-align: center;
 }
-.contact-cards{
+
+.contact-cards {
     box-sizing: border-box;
     /* border: 2px solid white; */
     display: flex;
@@ -305,6 +404,7 @@ nav .contactbox:hover{
     border-radius: 5px;
     padding: 10px;
 }
+
 .contactinfo {
     width: 25%;
     box-sizing: border-box;
@@ -314,10 +414,11 @@ nav .contactbox:hover{
     margin: 5px auto;
     padding: 5px;
     border-radius: 10px;
-    transition: all,ease-out,2000ms,300ms;
+    transition: all, ease-out, 2000ms, 300ms;
 }
-.contactinfo:hover{
-     box-shadow: 5px 10px 15px 1px rgb(0, 0, 8);
+
+.contactinfo:hover {
+    box-shadow: 5px 10px 15px 1px rgb(0, 0, 8);
 }
 
 .contact-item1 {
@@ -326,34 +427,39 @@ nav .contactbox:hover{
     padding: 5px;
 
 }
+
 .contact-item2 {
     font-size: 1.2em;
-     margin: 3px;
+    margin: 3px;
 }
+
 .contact-item3 {
     margin: 2px;
 }
-.map{
+
+.map {
     box-sizing: border-box;
     border: 1px solid red;
-    padding:2px;
+    padding: 2px;
     width: 30%;
     margin: 5px auto;
     border-radius: 10px;
-    transition: all,ease-in-out,2000ms,300ms;
+    transition: all, ease-in-out, 2000ms, 300ms;
 }
-.map:hover{
+
+.map:hover {
     transform: scale(1.2);
     background-color: #ec1e21;
 }
-.map a{
+
+.map a {
     text-decoration: none;
     color: white;
 }
 
 /* Footer */
 footer {
-    background: rgb(4, 4, 49); 
+    background: rgb(4, 4, 49);
     color: white;
     text-align: center;
     padding: 2rem;
@@ -368,7 +474,7 @@ footer {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0, 0, 0, 0.6);
     animation: fadeIn 0.3s ease;
 }
 
@@ -382,7 +488,7 @@ footer {
     background: white;
     padding: 3rem;
     border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     max-width: 500px;
     width: 90%;
     position: relative;
@@ -464,8 +570,13 @@ footer {
 
 /* Animations */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes fadeInUp {
@@ -473,6 +584,7 @@ footer {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -484,6 +596,7 @@ footer {
         opacity: 0;
         transform: translateY(50px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
