@@ -15,11 +15,66 @@ window.addEventListener('load', function () {
     setTimeout(function () {
         openModal();
     }, 1500); // Show popup after 1.5 seconds
-      setTimeout(function() {
+    setTimeout(function () {
         animateNumber('rating', 4.8, 2000, true);
         animateNumber('satisfaction', 98, 2000, false);
     }, 200);
 });
+
+function animateValue(element, start, end, duration, isDecimal = false) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        
+        if (isDecimal) {
+            const value = (progress * (end - start) + start).toFixed(1);
+            element.textContent = value;
+        } else {
+            const value = Math.floor(progress * (end - start) + start);
+            element.textContent = value;
+        }
+        
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
+    };
+    window.requestAnimationFrame(step);
+}
+// Function to reset and animate
+function animateStats() {
+    const ratingElement = document.getElementById('rating');
+    const satisfactionElement = document.getElementById('satisfaction');
+    
+    // Reset to 0
+    ratingElement.textContent = '0.0';
+    satisfactionElement.textContent = '0';
+    
+    // Animate
+    animateValue(ratingElement, 0, 4.8, 2000, true);
+    animateValue(satisfactionElement, 0, 98, 2000, false);
+}
+
+// Intersection Observer setup
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.3
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateStats();
+        }
+    });
+}, observerOptions);
+
+// Start observing
+const statsSection = document.querySelector('.mainbox2');
+if (statsSection) {
+    observer.observe(statsSection);
+}
 
 // Open modal
 function openModal() {
@@ -38,6 +93,22 @@ window.onclick = function (event) {
         closeModal();
     }
 }
+//javascript for hamburger
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+});
+
+// Close menu when clicking on a link
+navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+    });
+});
 
 // ============================================
 // FORM SUBMISSION WITH WHATSAPP INTEGRATION
@@ -152,14 +223,14 @@ document.addEventListener('keydown', function (event) {
 function animateNumber(elementId, finalValue, duration, hasDecimal) {
     var element = document.getElementById(elementId);
     if (!element) return;
-    
+
     var startValue = 0;
     var startTime = null;
-    
+
     function animate(currentTime) {
         if (!startTime) startTime = currentTime;
         var progress = (currentTime - startTime) / duration;
-        
+
         if (progress < 1) {
             var currentValue = startValue + (finalValue - startValue) * progress;
             if (hasDecimal) {
@@ -176,11 +247,11 @@ function animateNumber(elementId, finalValue, duration, hasDecimal) {
             }
         }
     }
-    
+
     requestAnimationFrame(animate);
 }
 
 // Start animation when page loads
-window.addEventListener('load', function() {
-  
+window.addEventListener('load', function () {
+
 });
