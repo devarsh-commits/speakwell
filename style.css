@@ -83,14 +83,17 @@ nav {
     font-size: 16px;
     white-space: nowrap;
     flex-shrink: 0;
-    transition: all,ease-in-out,1000ms,300ms;
+    transition: all, ease-in-out, 1000ms, 300ms;
 }
-.contactbox:hover{
+
+.contactbox:hover {
     transform: scale(1.2);
 }
-nav a{
+
+nav a {
     text-decoration: none;
 }
+
 /* Hamburger Menu */
 .hamburger {
     display: none;
@@ -121,6 +124,7 @@ nav a{
 
 /* Hero Section */
 .hero {
+    border: 2px solid red;
     background: #f7f3f4;
     color: white;
     padding: 150px 2rem 100px;
@@ -129,7 +133,7 @@ nav a{
 }
 
 .hero .info {
-    margin-top: 60px;
+    border: 2px solid red;
     color: rgb(4, 4, 49);
 }
 
@@ -647,6 +651,16 @@ footer {
     }
 }
 
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     nav {
@@ -705,13 +719,13 @@ footer {
 
     .hero {
         flex-direction: column;
+        padding: 5PX;
     }
 
     .hero h1 {
         font-size: 2rem;
     }
 
-    .mainbox1,
     .mainbox2 {
         width: 95%;
         flex-direction: column;
@@ -719,9 +733,29 @@ footer {
         justify-content: center
     }
 
+    .mainbox1 {
+        display: block;
+        overflow: hidden;
+        position: relative;
+        padding: 20px 0;
+        width: 100%;
+    }
+
+    .slider-track {
+        display: flex;
+        animation: scroll 20s linear infinite;
+    }
+
+    .slider-track:hover {
+        animation-play-state: paused;
+    }
+
     .mainbox1 .box {
-        width: calc(50% - 10px);
-        min-height: 80px;
+        min-width: 200px;
+        max-width: 200px;
+        margin: 0 15px;
+        flex-shrink: 0;
+        padding: 25px 20px;
     }
 
     .mainbox2 .box1 {
@@ -757,11 +791,17 @@ footer {
         padding: 3px;
     }
 
-    .mainbox1,
     .mainbox2 {
         width: 98%;
         gap: 8px;
         padding: 5px;
+    }
+
+    .mainbox1 .box {
+        min-width: 160px;
+        max-width: 160px;
+        padding: 20px 15px;
+        margin: 0 10px;
     }
 
     .mainbox1 .box {

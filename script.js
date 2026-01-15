@@ -19,6 +19,13 @@ window.addEventListener('load', function () {
         animateNumber('rating', 4.8, 2000, true);
         animateNumber('satisfaction', 98, 2000, false);
     }, 200);
+    setupSlider();
+    // Run on resize
+let resizeTimer;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(setupSlider, 250);
+});
 });
 
 function animateValue(element, start, end, duration, isDecimal = false) {
@@ -26,7 +33,7 @@ function animateValue(element, start, end, duration, isDecimal = false) {
     const step = (timestamp) => {
         if (!startTimestamp) startTimestamp = timestamp;
         const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        
+
         if (isDecimal) {
             const value = (progress * (end - start) + start).toFixed(1);
             element.textContent = value;
@@ -34,22 +41,62 @@ function animateValue(element, start, end, duration, isDecimal = false) {
             const value = Math.floor(progress * (end - start) + start);
             element.textContent = value;
         }
-        
+
         if (progress < 1) {
             window.requestAnimationFrame(step);
         }
     };
     window.requestAnimationFrame(step);
 }
+//function for slider
+function setupSlider() {
+    const slider = document.getElementById('logoSlider');
+
+    // Only apply slider on mobile
+    if (window.innerWidth <= 768) {
+        // Check if already converted to slider
+        if (!slider.querySelector('.slider-track')) {
+            // Get all boxes
+            const boxes = Array.from(slider.querySelectorAll('.box'));
+
+            // Create slider track
+            const track = document.createElement('div');
+            track.className = 'slider-track';
+
+            // Add original boxes
+            boxes.forEach(box => {
+                track.appendChild(box.cloneNode(true));
+            });
+
+            // Duplicate boxes for seamless loop
+            boxes.forEach(box => {
+                track.appendChild(box.cloneNode(true));
+            });
+
+            // Clear slider and add track
+            slider.innerHTML = '';
+            slider.appendChild(track);
+        }
+    } else {
+        // Desktop: restore grid layout
+        if (slider.querySelector('.slider-track')) {
+            const track = slider.querySelector('.slider-track');
+            const boxes = Array.from(track.querySelectorAll('.box')).slice(0, 4);
+
+            slider.innerHTML = '';
+            boxes.forEach(box => slider.appendChild(box));
+        }
+    }
+}
 // Function to reset and animate
 function animateStats() {
     const ratingElement = document.getElementById('rating');
     const satisfactionElement = document.getElementById('satisfaction');
-    
+
     // Reset to 0
     ratingElement.textContent = '0.0';
     satisfactionElement.textContent = '0';
-    
+
     // Animate
     animateValue(ratingElement, 0, 4.8, 2000, true);
     animateValue(satisfactionElement, 0, 98, 2000, false);
@@ -255,3 +302,4 @@ function animateNumber(elementId, finalValue, duration, hasDecimal) {
 window.addEventListener('load', function () {
 
 });
+
