@@ -660,7 +660,7 @@ footer {
     }
 
     100% {
-        transform: translateX(-450%);
+        transform: translateX(-420%);
     }
 }
 
