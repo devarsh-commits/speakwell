@@ -125,7 +125,7 @@ nav a {
 
 /* Hero Section */
 .hero {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     background: #f7f3f4;
     color: white;
     padding: 150px 2rem 100px;
@@ -134,7 +134,7 @@ nav a {
 }
 
 .hero .info {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     color: rgb(4, 4, 49);
 }
 
@@ -160,7 +160,7 @@ nav a {
 }
 
 .hero .banner1 {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -560,7 +560,7 @@ footer {
 }
 
 .modal-content h2 {
-    color: #667eea;
+    color:#ec1e21;;
     margin-bottom: 1rem;
     font-size: 2rem;
 }
@@ -597,7 +597,7 @@ footer {
 
 .submit-btn {
     width: 100%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #ec1e21;;
     color: white;
     padding: 1rem;
     border: none;
@@ -780,6 +780,19 @@ footer {
     .description{
         display: flex;
         justify-content: center;
+    }
+     .myslider{
+        display: block;
+        overflow: hidden;
+        position: relative;
+        padding: 5px;
+        width: 100%
+     }
+    .contactinfo{
+        /* border: 2px solid green; */
+        box-sizing: border-box;
+        width: 300px;
+        padding: 10px;
     }
 }
 
